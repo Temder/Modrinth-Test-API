@@ -17,7 +17,15 @@ body {
     padding: 0.25em;
     border: solid 1px #ccc;
     border-radius: 0.5em;
+    background-color: #121212;
+    z-index: 1;
     & h3 {
         margin-top: 0;
     }
+}
+#api-response {
+    position: absolute;
+    width: 50%;
+    right: 0;
+    top: 0;
 }

@@ -9,9 +9,27 @@
 <body>
     <div id="rate-limit-info">
         <h3>Rate Limits</h3>
-        <span></span>
+        <span>Nothing to show</span>
     </div>
-    <button onclick="testApiCall()">Call API</button>
+    <button onclick="testApiCall('https://api.modrinth.com/v2/tag/category')">Call API</button>
+    <div id="search">
+        <h3>Search</h3>
+        <input type="text" id="search-input" placeholder="Search for projects...">
+        <button onclick="searchProjects()">Search</button>
+    </div>
+    <div id="api-response">
+        <h3>API Response</h3>
+        <pre id="response-content">No response yet.</pre>
+    </div>
+    <select id="loader"></select>
+    <select id="category"></select>
+    <select id="game_version"></select>
+    <div>
+        <div id="datapacks"></div>
+        <div id="resorcepacks"></div>
+        <div id="plugins"></div>
+        <div id="mods"></div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
