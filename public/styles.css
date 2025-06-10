@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #ffffff;
+    }
+}
+#rate-limit-info {
+    position: fixed;
+    bottom: 0.5em;
+    right: 0.5em;
+    padding: 0.25em;
+    border: solid 1px #ccc;
+    border-radius: 0.5em;
+    & h3 {
+        margin-top: 0;
+    }
+}
