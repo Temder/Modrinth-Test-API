@@ -33,13 +33,29 @@ body {
     display: flex;
     gap: 0.5em;
     padding: 1em;
+    -webkit-text-stroke: 0.3em black;
+    paint-order: stroke;
     & > div {
+        position: relative;
         height: 20em;
         aspect-ratio: 1;
         padding: 1em;
         border: solid 2px white;
+        border-radius: 1em;
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
     }
+    & .author {
+        position: absolute;
+        bottom: 1em;
+        right: 1em;
+    }
+    & h3 {
+        margin-top: 0;
+    }
+}
+.text-outline {
+    -webkit-text-stroke: 0.3em black;
+    paint-order: stroke;
 }
