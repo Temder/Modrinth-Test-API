@@ -21,15 +21,16 @@
         <h3>API Response</h3>
         <pre id="response-content">No response yet.</pre>
     </div>
-    <select id="loader"></select>
-    <select id="category"></select>
-    <select id="game_version"></select>
-    <div>
-        <div id="datapacks"></div>
-        <div id="resorcepacks"></div>
-        <div id="plugins"></div>
-        <div id="mods"></div>
-    </div>
+    <select id="type">
+        <option value="datapack">Datapacks</option>
+        <option value="resourcepack">Resourcepacks</option>
+        <option value="plugin">Plugins</option>
+        <option value="mod">Mods</option>
+    </select>
+    <select id="loader" multiple></select>
+    <select id="category" multiple></select>
+    <select id="game_version" multiple></select>
+    <div id="content"></div>
     <script src="script.js"></script>
 </body>
 </html>

@@ -67,7 +67,7 @@ app.post('/api/modrinth/searchProjects', async (req, res) => {
         return null;
     }).filter(n => n).join(',');
     facets = facets ? `&facets=[${facets}]` : '';
-    let url = `https://api.modrinth.com/v2/search?limit=2${query}${facets ? facets : ''}`;
+    let url = `https://api.modrinth.com/v2/search?limit=5${query}${facets ? facets : ''}`;
     let call = await apiCall(url);
     if (call.data && call.headers) {
         res.json({

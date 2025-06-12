@@ -1,7 +1,16 @@
 let rateLimit = document.getElementById('rate-limit-info');
 let apiResponse = document.getElementById('api-response');
 let searchInput = document.getElementById('search-input');
+let typeSelect = document.getElementById('type');
+let loaderSelect = document.getElementById('loader');
+let categorySelect = document.getElementById('category');
+let game_versionSelect = document.getElementById('game_version');
+let content = document.getElementById('content');
 let tagList = ['category', 'game_version', 'loader'];
+
+function multiSelVal(sel) {
+    return [...sel.selectedOptions].map(opt => opt.value)
+}
 
 function testApiCall(url) {
     if (!url) {
@@ -43,9 +52,9 @@ function testApiCall(url) {
 function searchProjects() {
     let query = searchInput.value.trim();
     let facets = {
-        project_type: [''],
-        categories: [''], // includes loaders
-        versions: [''],
+        project_type: multiSelVal(typeSelect),
+        categories: multiSelVal(categorySelect), // includes loaders
+        versions: multiSelVal(game_versionSelect)
     };
     const requestBody = {
         query: query || '',
@@ -64,6 +73,15 @@ function searchProjects() {
             console.error('Error:', data.error);
             rateLimit.getElementsByTagName('span')[0].textContent = 'Error fetching data from API';
         } else {
+            data.data.hits.forEach(project => {
+                content.insertAdjacentHTML('beforeend', /*html*/`
+                    <div style="background-image: url('${project.icon_url}');">
+                        <h3>${project.title}</h3>
+                        <div class="description">${project.description}</div>
+                        <div class="author">Author: ${project.author}</div>
+                    </div>
+                `)
+            });
             apiResponse.getElementsByTagName('pre')[0].textContent = JSON.stringify(data.data, null, 2);
             rateLimit.getElementsByTagName('span')[0].innerHTML = `Limit: ${data.limit}<br>Remaining: ${data.remaining}<br>Reset: ${data.reset}`;
         }

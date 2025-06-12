@@ -29,3 +29,17 @@ body {
     right: 0;
     top: 0;
 }
+#content {
+    display: flex;
+    gap: 0.5em;
+    padding: 1em;
+    & > div {
+        height: 20em;
+        aspect-ratio: 1;
+        padding: 1em;
+        border: solid 2px white;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
